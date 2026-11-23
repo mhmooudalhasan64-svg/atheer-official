@@ -55,3 +55,26 @@
 }
 @media(max-width:760px){.domain-symbol{width:46px;height:46px;border-radius:15px;font-size:20px}.domain-symbol:before{border-radius:12px}.direction-top b{width:37px;height:37px;border-radius:13px}}
 @media(prefers-reduced-motion:reduce){.domain-symbol{transition:none}}
+
+
+/* ATHEER values section — replaces all product showcases */
+.impact-section{background:linear-gradient(145deg,#11100d 0%,#090909 72%);position:relative;overflow:hidden}
+.impact-section:after{content:"";position:absolute;width:620px;height:620px;left:-310px;top:12%;border:1px solid rgba(201,164,76,.07);border-radius:50%;box-shadow:0 0 0 55px rgba(201,164,76,.018),0 0 0 110px rgba(201,164,76,.012);pointer-events:none}
+.impact-heading{display:flex;align-items:end;justify-content:space-between;gap:35px;margin-bottom:52px;position:relative;z-index:1}
+.impact-heading .overline{margin:0 0 12px}
+.impact-heading h2{font-size:clamp(44px,5.2vw,70px);line-height:1.45;font-weight:500;margin:0}
+.impact-heading>p{max-width:390px;color:var(--muted);font-size:13px;line-height:2.25;margin-bottom:9px}
+.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;position:relative;z-index:1}
+.impact-card{min-height:310px;position:relative;overflow:hidden;padding:27px 26px;border:1px solid rgba(201,164,76,.18);background:linear-gradient(150deg,rgba(255,255,255,.025),rgba(7,7,7,.6));transition:transform .3s,border-color .3s,background .3s}
+.impact-card:hover{transform:translateY(-6px);border-color:rgba(201,164,76,.48);background:linear-gradient(150deg,rgba(201,164,76,.08),rgba(7,7,7,.7))}
+.impact-card-featured{background:linear-gradient(145deg,rgba(201,164,76,.14),rgba(9,9,8,.72));border-color:rgba(201,164,76,.38)}
+.impact-number{font:8px Manrope,Arial;letter-spacing:1.7px;color:#a28d5b}
+.impact-icon{width:54px;height:54px;margin-top:38px;display:grid;place-items:center;border:1px solid rgba(232,223,201,.3);border-radius:18px;color:#f1e5c5;font-size:25px;background:radial-gradient(circle at 28% 18%,rgba(255,255,255,.48),transparent 32%),linear-gradient(145deg,rgba(255,255,255,.15),rgba(93,151,161,.12),rgba(201,164,76,.12));backdrop-filter:blur(14px) saturate(160%);box-shadow:inset 1px 1px 1px rgba(255,255,255,.4),0 8px 22px rgba(0,0,0,.25)}
+.impact-card h3{font-size:21px;font-weight:500;margin:22px 0 8px}
+.impact-card p{position:relative;z-index:1;max-width:310px;color:var(--muted);font-size:12px;line-height:2.2;margin:0}
+.impact-watermark{position:absolute;left:12px;bottom:-65px;font:170px Manrope;color:rgba(201,164,76,.045)}
+.impact-statement{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:55px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.impact-statement>span{font:8px Manrope;letter-spacing:1.5px;color:#897b60}
+.impact-statement strong{font-size:clamp(14px,1.8vw,20px);font-weight:500;line-height:2}
+.impact-statement em{font-style:normal;color:var(--gold-light)}
+@media(max-width:760px){.impact-heading{display:block;margin-bottom:35px}.impact-heading h2{font-size:46px}.impact-heading>p{margin-top:18px;font-size:12px}.impact-grid{grid-template-columns:1fr}.impact-card{min-height:250px;padding:23px}.impact-icon{margin-top:25px}.impact-card h3{margin-top:18px}.impact-statement{align-items:flex-start;flex-direction:column;gap:12px;margin-top:38px}.impact-statement strong{font-size:14px}.impact-statement>span{font-size:7px}}
