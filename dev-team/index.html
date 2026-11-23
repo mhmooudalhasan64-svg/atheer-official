@@ -45,7 +45,7 @@
           <div class="date-chip"><span class="live-dot"></span> مساحة تأسيسية</div>
         </div>
 
-        <div class="notice" role="status"><span class="notice-icon">i</span><div><b>الواجهة التأسيسية جاهزة — الربط البرمجي لم يُفعّل بعد</b><p>لا توجد حالياً اتصالات نشطة مع ChatGPT أو Gemini أو GitHub API من داخل هذه اللوحة. لن تُنفّذ أي تغييرات أو عمليات نشر تلقائياً.</p></div></div>
+        <div class="notice" role="status" aria-live="polite"><span class="notice-icon">i</span><div><b id="apiStatus">جارٍ فحص الخادم…</b><p id="apiDetails">يتم التحقق من نقطة فحص API.</p></div></div>
 
         <div class="metrics-grid">
           <article class="metric-card"><span class="metric-label">المهام المسجلة في هذه الجلسة</span><strong id="taskCount">٠</strong><small>مسودات محلية فقط</small><span class="metric-mark">＋</span></article>
@@ -54,12 +54,12 @@
           <article class="metric-card"><span class="metric-label">النشر الإنتاجي</span><strong class="safe-value">محمي</strong><small>يتطلب موافقة صريحة</small><span class="metric-mark">▣</span></article>
         </div>
 
-        <div class="section-title" id="new-task"><div><span class="section-kicker">01 / TASK INTAKE</span><h2>ابدأ بأمر تطوير واحد</h2><p>اكتب المطلوب بالعربية. ستُحفظ هنا كمسودة محلية إلى أن نربط محرك التنفيذ.</p></div></div>
+        <div class="section-title" id="new-task"><div><span class="section-kicker">01 / TASK INTAKE</span><h2>ابدأ بأمر تطوير واحد</h2><p>اكتب المطلوب بالعربية. الحفظ الحالي محلي مؤقت، وسيُربط بالتخزين الدائم بعد إعداد قاعدة البيانات.</p></div></div>
         <section class="task-composer">
           <label for="taskInput">وصف المهمة</label>
           <textarea id="taskInput" rows="4" maxlength="1200" placeholder="مثال: راجع تجربة الهاتف في الموقع، وحدد المشاكل ثم اقترح إصلاحات لا تؤثر على بقية الصفحات..."></textarea>
           <div class="composer-bottom"><span id="charCount">٠ / ١٢٠٠</span><button class="primary-button" id="saveTask">حفظ كمسودة <span>←</span></button></div>
-          <p class="helper-text" id="formMessage" aria-live="polite">الحفظ لا يرسل المهمة إلى أي نموذج ذكاء اصطناعي.</p>
+          <p class="helper-text" id="formMessage" aria-live="polite">المسودة لا تُرسل إلى أي نموذج ذكاء اصطناعي ولا تُحفظ بشكل دائم بعد.</p>
         </section>
 
         <div class="section-title" id="workflow"><div><span class="section-kicker">02 / CONTROLLED WORKFLOW</span><h2>سير العمل المقترح</h2><p>كل مرحلة لها مخرجات واضحة ونقطة تحقق قبل الانتقال للمرحلة التالية.</p></div></div>
@@ -82,7 +82,7 @@
 
         <section class="drafts-panel" id="drafts"><div class="panel-heading"><div><span class="section-kicker">05 / SESSION DRAFTS</span><h2>مسودات المهام</h2></div><span class="muted-tag">هذه الجلسة فقط</span></div><div id="draftList" class="empty-state"><span>＋</span><b>لا توجد مسودات بعد</b><small>أضف أول مهمة من الحقل أعلاه.</small></div></section>
 
-        <footer class="footer"><span>ATHEER DEV TEAM</span><span>واجهة داخلية تجريبية · لا يوجد تنفيذ خلفي بعد</span></footer>
+        <footer class="footer"><span>ATHEER DEV TEAM</span><span>نقطة فحص API أولية · التخزين والربط غير مفعّلين</span></footer>
       </section>
     </main>
   </div>
