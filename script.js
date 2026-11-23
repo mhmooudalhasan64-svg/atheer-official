@@ -1,55 +1,66 @@
-const menuButton=document.querySelector(".menu-toggle");
-const nav=document.querySelector(".main-nav");
-const header=document.querySelector(".site-header");
-const progress=document.querySelector(".scroll-progress");
+const menuButton=document.querySelector(".menu-button");
+const nav=document.querySelector(".navigation");
+const header=document.querySelector(".header");
+const progress=document.querySelector(".reading-line");
 const year=document.getElementById("year");
+
 if(year) year.textContent=String(new Date().getFullYear());
 
 if(menuButton&&nav){
-  const closeMenu=()=>{nav.classList.remove("open");menuButton.setAttribute("aria-expanded","false");menuButton.setAttribute("aria-label","فتح القائمة")};
+  const closeMenu=()=>{
+    nav.classList.remove("open");
+    menuButton.setAttribute("aria-expanded","false");
+    menuButton.setAttribute("aria-label","فتح القائمة");
+  };
   menuButton.addEventListener("click",()=>{
-    const isOpen=nav.classList.toggle("open");
-    menuButton.setAttribute("aria-expanded",String(isOpen));
-    menuButton.setAttribute("aria-label",isOpen?"إغلاق القائمة":"فتح القائمة");
+    const open=nav.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded",String(open));
+    menuButton.setAttribute("aria-label",open?"إغلاق القائمة":"فتح القائمة");
   });
   nav.querySelectorAll("a").forEach(link=>link.addEventListener("click",closeMenu));
   document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMenu()});
+  document.addEventListener("click",event=>{
+    if(nav.classList.contains("open")&&!nav.contains(event.target)&&!menuButton.contains(event.target))closeMenu();
+  });
 }
 
-const updateScrollUI=()=>{
-  const scrollable=document.documentElement.scrollHeight-window.innerHeight;
-  const ratio=scrollable>0?window.scrollY/scrollable:0;
+const updateChrome=()=>{
+  const total=document.documentElement.scrollHeight-window.innerHeight;
+  const ratio=total>0?window.scrollY/total:0;
   if(progress)progress.style.width=(ratio*100)+"%";
-  if(header)header.classList.toggle("scrolled",window.scrollY>30);
+  if(header)header.classList.toggle("is-fixed",window.scrollY>32);
 };
-window.addEventListener("scroll",updateScrollUI,{passive:true});
-updateScrollUI();
+window.addEventListener("scroll",updateChrome,{passive:true});
+window.addEventListener("resize",updateChrome);
+updateChrome();
 
-const revealTargets=document.querySelectorAll(".section-heading,.about-title,.about-copy,.about-principle,.vision-intro,.direction-card,.domains-heading,.domain-row,.impact-heading,.impact-card,.impact-statement,.method-heading,.method-steps article,.journey-content");
-revealTargets.forEach((element,index)=>{
-  element.classList.add("reveal");
-  element.style.transitionDelay=(index%4)*75+"ms";
-});
+const revealItems=[...document.querySelectorAll(".reveal")];
 if("IntersectionObserver" in window){
   const revealObserver=new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
-      if(entry.isIntersecting){entry.target.classList.add("is-visible");revealObserver.unobserve(entry.target)}
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
     });
-  },{threshold:.12,rootMargin:"0px 0px -35px 0px"});
-  revealTargets.forEach(element=>revealObserver.observe(element));
+  },{threshold:.12,rootMargin:"0px 0px -28px 0px"});
+  revealItems.forEach((item,index)=>{
+    item.style.transitionDelay=(index%3)*65+"ms";
+    revealObserver.observe(item);
+  });
 }else{
-  revealTargets.forEach(element=>element.classList.add("is-visible"));
+  revealItems.forEach(item=>item.classList.add("visible"));
 }
 
 const sections=[...document.querySelectorAll("main section[id]")];
-const navLinks=[...document.querySelectorAll(".main-nav a")];
-if("IntersectionObserver" in window&&sections.length&&navLinks.length){
+const links=[...document.querySelectorAll(".navigation a")];
+if("IntersectionObserver" in window&&sections.length&&links.length){
   const activeObserver=new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){
-        navLinks.forEach(link=>link.classList.toggle("active",link.getAttribute("href")==="#"+entry.target.id));
+        links.forEach(link=>link.classList.toggle("active",link.getAttribute("href")==="#"+entry.target.id));
       }
     });
-  },{rootMargin:"-35% 0px -55% 0px"});
+  },{rootMargin:"-36% 0px -56% 0px"});
   sections.forEach(section=>activeObserver.observe(section));
 }
