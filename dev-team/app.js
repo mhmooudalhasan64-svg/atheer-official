@@ -6,6 +6,8 @@ const formMessage=document.getElementById("formMessage");
 const draftList=document.getElementById("draftList");
 const menuToggle=document.getElementById("menuToggle");
 const sidebar=document.getElementById("sidebar");
+const apiStatus=document.getElementById("apiStatus");
+const apiDetails=document.getElementById("apiDetails");
 const drafts=[];
 
 const toArabicNumber=value=>String(value).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[Number(d)]);
@@ -18,7 +20,7 @@ saveButton?.addEventListener("click",()=>{
   taskCount.textContent=toArabicNumber(drafts.length);
   input.value="";
   charCount.textContent="٠ / ١٢٠٠";
-  formMessage.textContent="حُفظت المسودة في ذاكرة هذه الصفحة فقط. لم تُرسل إلى أي خدمة خارجية.";
+  formMessage.textContent="حُفظت المسودة في ذاكرة هذه الصفحة فقط؛ لم تُحفظ في قاعدة بيانات.";
   renderDrafts();
 });
 function renderDrafts(){
@@ -38,6 +40,22 @@ function renderDrafts(){
     draftList.append(article);
   });
 }
+async function checkApiHealth(){
+  if(!apiStatus||!apiDetails)return;
+  try{
+    const response=await fetch("/api/health",{headers:{Accept:"application/json"},cache:"no-store"});
+    if(!response.ok)throw new Error("health_check_failed");
+    const data=await response.json();
+    apiStatus.textContent="الخادم يعمل";
+    apiDetails.textContent=data.taskStorage==="not_configured"
+      ?"فحص الخادم ناجح. تخزين المهام الدائم وربط ChatGPT وGemini لم يُفعّل بعد."
+      :"تم الاتصال بالخادم.";
+  }catch{
+    apiStatus.textContent="تعذّر الاتصال";
+    apiDetails.textContent="لم نتمكن من فحص الخادم. افتح اللوحة عبر نشر Vercel، وليس بفتح الملف محلياً.";
+  }
+}
+checkApiHealth();
 menuToggle?.addEventListener("click",()=>{
   const opened=sidebar.classList.toggle("open");
   menuToggle.setAttribute("aria-expanded",String(opened));
