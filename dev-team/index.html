@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="ATHEER DEV TEAM — مساحة تنسيق تطوير منتجات أثير الرقمية.">
+  <title>ATHEER DEV TEAM | مساحة التطوير</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#overview" aria-label="ATHEER DEV TEAM">
+        <span class="brand-symbol">أ</span>
+        <span><b>ATHEER</b><small>DEV TEAM</small></span>
+      </a>
+      <div class="workspace-label">مساحة العمل</div>
+      <nav class="side-nav" aria-label="التنقل الرئيسي">
+        <a class="nav-item active" href="#overview"><span class="nav-icon">⌂</span> نظرة عامة</a>
+        <a class="nav-item" href="#new-task"><span class="nav-icon">＋</span> مهمة تطوير جديدة</a>
+        <a class="nav-item" href="#workflow"><span class="nav-icon">⇄</span> سير العمل</a>
+        <a class="nav-item" href="#agents"><span class="nav-icon">◇</span> فريق الذكاء الاصطناعي</a>
+        <a class="nav-item" href="#security"><span class="nav-icon">▣</span> الأمان والصلاحيات</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="repo-mini"><span class="status-dot"></span><div><b>atheer-official</b><small>GitHub repository</small></div></div>
+        <div class="sidebar-foot">التقنية بذكاء، والحياة ببساطة.</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+        <div class="breadcrumb">أثير <span>/</span> فريق التطوير</div>
+        <div class="topbar-actions"><span class="env-pill"><i></i> بيئة تطوير تجريبية</span><div class="avatar" title="مالك مساحة العمل">م</div></div>
+      </header>
+
+      <section class="page-content" id="overview">
+        <div class="welcome-row">
+          <div><div class="eyebrow"><span></span> ATHEER DEVELOPMENT WORKSPACE</div><h1>مركز قيادة التطوير</h1><p class="subheading">من أمر واحد إلى تغيير برمجي قابل للمراجعة.</p></div>
+          <div class="date-chip"><span class="live-dot"></span> مساحة تأسيسية</div>
+        </div>
+
+        <div class="notice" role="status"><span class="notice-icon">i</span><div><b>الواجهة التأسيسية جاهزة — الربط البرمجي لم يُفعّل بعد</b><p>لا توجد حالياً اتصالات نشطة مع ChatGPT أو Gemini أو GitHub API من داخل هذه اللوحة. لن تُنفّذ أي تغييرات أو عمليات نشر تلقائياً.</p></div></div>
+
+        <div class="metrics-grid">
+          <article class="metric-card"><span class="metric-label">المهام المسجلة في هذه الجلسة</span><strong id="taskCount">٠</strong><small>مسودات محلية فقط</small><span class="metric-mark">＋</span></article>
+          <article class="metric-card"><span class="metric-label">وكلاء متصلون</span><strong>٠ / ٢</strong><small>بانتظار إعداد API</small><span class="metric-mark">◇</span></article>
+          <article class="metric-card"><span class="metric-label">فرع التطوير</span><strong class="branch-value">feat/atheer-dev-team-foundation</strong><small>على المستودع الحالي</small><span class="metric-mark">⑂</span></article>
+          <article class="metric-card"><span class="metric-label">النشر الإنتاجي</span><strong class="safe-value">محمي</strong><small>يتطلب موافقة صريحة</small><span class="metric-mark">▣</span></article>
+        </div>
+
+        <div class="section-title" id="new-task"><div><span class="section-kicker">01 / TASK INTAKE</span><h2>ابدأ بأمر تطوير واحد</h2><p>اكتب المطلوب بالعربية. ستُحفظ هنا كمسودة محلية إلى أن نربط محرك التنفيذ.</p></div></div>
+        <section class="task-composer">
+          <label for="taskInput">وصف المهمة</label>
+          <textarea id="taskInput" rows="4" maxlength="1200" placeholder="مثال: راجع تجربة الهاتف في الموقع، وحدد المشاكل ثم اقترح إصلاحات لا تؤثر على بقية الصفحات..."></textarea>
+          <div class="composer-bottom"><span id="charCount">٠ / ١٢٠٠</span><button class="primary-button" id="saveTask">حفظ كمسودة <span>←</span></button></div>
+          <p class="helper-text" id="formMessage" aria-live="polite">الحفظ لا يرسل المهمة إلى أي نموذج ذكاء اصطناعي.</p>
+        </section>
+
+        <div class="section-title" id="workflow"><div><span class="section-kicker">02 / CONTROLLED WORKFLOW</span><h2>سير العمل المقترح</h2><p>كل مرحلة لها مخرجات واضحة ونقطة تحقق قبل الانتقال للمرحلة التالية.</p></div></div>
+        <section class="workflow-grid">
+          <article class="workflow-card"><span class="step-number">01</span><div class="step-icon">⌕</div><h3>تحليل الطلب</h3><p>ChatGPT يحدد النطاق، الملفات المتأثرة، المخاطر ومعايير القبول.</p><span class="step-state">مرحلة مخططة</span></article>
+          <article class="workflow-card"><span class="step-number">02</span><div class="step-icon">⌘</div><h3>التنفيذ البرمجي</h3><p>Gemini ينفذ التغيير المقترح ضمن فرع التطوير وبحدود المهمة.</p><span class="step-state">بانتظار الربط</span></article>
+          <article class="workflow-card"><span class="step-number">03</span><div class="step-icon">✓</div><h3>المراجعة والاختبار</h3><p>فحص الفروقات، سلامة الملفات، الوظائف والتوافق قبل طلب المراجعة.</p><span class="step-state">بانتظار الربط</span></article>
+          <article class="workflow-card approval-card"><span class="step-number">04</span><div class="step-icon">⚑</div><h3>موافقة المالك</h3><p>لا دمج إلى main ولا نشر إنتاجي قبل موافقتك الصريحة.</p><span class="step-state protected">بوابة موافقة إلزامية</span></article>
+        </section>
+
+        <div class="lower-grid">
+          <section class="panel" id="agents"><div class="panel-heading"><div><span class="section-kicker">03 / AI TEAM</span><h2>أعضاء الفريق</h2></div><span class="muted-tag">غير متصلين</span></div>
+            <div class="agent-row"><div class="agent-avatar chatgpt">GPT</div><div class="agent-info"><b>ChatGPT</b><small>المهندس المعماري ومراجع الجودة</small></div><span class="connection-state">غير مربوط</span></div>
+            <div class="agent-row"><div class="agent-avatar gemini">✦</div><div class="agent-info"><b>Gemini</b><small>منفّذ التعديلات البرمجية</small></div><span class="connection-state">غير مربوط</span></div>
+          </section>
+          <section class="panel" id="security"><div class="panel-heading"><div><span class="section-kicker">04 / SECURITY</span><h2>حدود الصلاحيات</h2></div><span class="shield">▣</span></div>
+            <ul class="security-list"><li><span>✓</span> التطوير على فرع مستقل</li><li><span>✓</span> عدم تعديل main مباشرة</li><li><span>✓</span> عدم كشف مفاتيح API للمتصفح</li><li><span>✓</span> موافقة صريحة قبل الدمج والنشر</li></ul>
+          </section>
+        </div>
+
+        <section class="drafts-panel" id="drafts"><div class="panel-heading"><div><span class="section-kicker">05 / SESSION DRAFTS</span><h2>مسودات المهام</h2></div><span class="muted-tag">هذه الجلسة فقط</span></div><div id="draftList" class="empty-state"><span>＋</span><b>لا توجد مسودات بعد</b><small>أضف أول مهمة من الحقل أعلاه.</small></div></section>
+
+        <footer class="footer"><span>ATHEER DEV TEAM</span><span>واجهة داخلية تجريبية · لا يوجد تنفيذ خلفي بعد</span></footer>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
