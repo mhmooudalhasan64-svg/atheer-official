@@ -25,7 +25,7 @@ const updateScrollUI=()=>{
 window.addEventListener("scroll",updateScrollUI,{passive:true});
 updateScrollUI();
 
-const revealTargets=document.querySelectorAll(".section-heading,.about-title,.about-copy,.about-principle,.vision-intro,.direction-card,.domains-heading,.domain-row,.products-heading,.product-feature,.future-note,.method-heading,.method-steps article,.journey-content");
+const revealTargets=document.querySelectorAll(".section-heading,.about-title,.about-copy,.about-principle,.vision-intro,.direction-card,.domains-heading,.domain-row,.impact-heading,.impact-card,.impact-statement,.method-heading,.method-steps article,.journey-content");
 revealTargets.forEach((element,index)=>{
   element.classList.add("reveal");
   element.style.transitionDelay=(index%4)*75+"ms";
